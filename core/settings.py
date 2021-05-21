@@ -129,7 +129,19 @@ USE_TZ = True
 AUTH_USER_MODEL = 'profiles.UserProfile'
 
 STATIC_URL = '/static/'
+
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, '../static')
 
 CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ALLOWED_ORIGINS = [
+#    "https://plasmatch.in",
+#    "https://housie.plasmatch.in",
+#    "http://localhost:8080",
+#    "http://127.0.0.1:5500",
+#    "http://192.168.1.218:5500",
+#]
+
+# USE_X_FORWARDED_HOST = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['housie.plasmatch.in']
