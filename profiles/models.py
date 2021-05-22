@@ -45,11 +45,12 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
 class Ticket(models.Model):
 
-    bought_by = models.CharField(default='Not Booked', max_length=100, blank=True)
+    customer_name = models.CharField(default='Not Booked', max_length=100, blank=True)
+    customer_phone = models.CharField(default='', max_length=15, blank=True)
     bought_on = models.DateTimeField(auto_now=True)
     game_id  = models.IntegerField()
     ticket_id = models.IntegerField()
     ticket = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'{self.game_id} {self.ticket_id}'
+        return f'{self.game_id} {self.ticket_id} - {self.customer_name}'
