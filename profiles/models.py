@@ -47,9 +47,9 @@ class Game(models.Model):
     game_id = models.IntegerField(primary_key=True)
     start_time = models.DateTimeField()
     game_is_live = models.BooleanField(default=False)
-    drawn_numbers_list = models.CharField(default='', max_length=500)
-    last_played_num = models.CharField(default='', max_length=100)
-    last_played_winner = models.CharField(default='', max_length=100, blank=True)
+    drawn_numbers_list = models.CharField(default='', blank=True, max_length=500)
+    last_played_num = models.CharField(default='', blank=True, max_length=100)
+    # last_played_winner = models.CharField(default='', max_length=100, blank=True)
 
     def __str__(self):
         return f'{self.game_id} - {self.start_time}'
@@ -64,7 +64,7 @@ class Ticket(models.Model):
     ticket = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'{self.game_id} {self.ticket_id} - {self.customer_name}'
+        return f'{self.ticket_id} - {self.customer_name}'
 
 class Winner(models.Model):
     WINNER_TYPES = [
