@@ -59,9 +59,11 @@ class Ticket(models.Model):
     customer_name = models.CharField(default='Not Booked', max_length=100, blank=True)
     customer_phone = models.CharField(default='', max_length=15, blank=True)
     bought_on = models.DateTimeField(auto_now=True)
+    booked_by = models.ForeignKey(UserProfile, related_name='ticket', on_delete=models.CASCADE, blank=True, null=True)
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='ticket', default='1')
     ticket_id = models.IntegerField()
     ticket = models.CharField(max_length=255)
+
 
     def __str__(self):
         return f'{self.ticket_id} - {self.customer_name}'
