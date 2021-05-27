@@ -13,5 +13,6 @@ router.register('games', views.GameViewSet)
 router.register('gamesGet', views.GameGetViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+     path('getToken/', views.CustomAuthToken.as_view())
 ]

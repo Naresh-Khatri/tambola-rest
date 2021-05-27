@@ -16,10 +16,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class TicketSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = models.Ticket
         fields = '__all__'
-
+        
 class TicketGetSerializer(serializers.ModelSerializer):
     # winner = WinnerGetSerializer(many=True, read_only=True)
     class Meta:
