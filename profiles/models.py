@@ -60,7 +60,7 @@ class Ticket(models.Model):
     customer_phone = models.CharField(default='', max_length=15, blank=True)
     bought_on = models.DateTimeField(auto_now=True)
     booked_by = models.ForeignKey(UserProfile, related_name='ticket', on_delete=models.CASCADE, blank=True, null=True)
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='ticket', default='1')
+    #game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='ticket', default='1')
     ticket_id = models.IntegerField()
     ticket = models.CharField(max_length=255)
 
@@ -81,7 +81,7 @@ class Winner(models.Model):
 
 ]
     ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, related_name='winner')
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='winner_game', default='1')
+    #game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='winner_game', default='1')
     win_type = models.CharField(max_length=3, choices=WINNER_TYPES, default='')
 
     def __str__(self):

@@ -25,7 +25,13 @@ class TicketGetSerializer(serializers.ModelSerializer):
     # winner = WinnerGetSerializer(many=True, read_only=True)
     class Meta:
         model = models.Ticket
-        fields = ('id', 'ticket_id', 'ticket', 'customer_name', 'game')
+        fields = ['id', 'ticket_id', 'ticket', 'customer_name']
+        extra_kwargs = {
+           'ticket_id': {'read_only': True},
+           'ticket': {'read_only': True},
+           'customer_name': {'read_only': True}
+}
+        
 
 class WinnerSerializer(serializers.ModelSerializer):
     class Meta:

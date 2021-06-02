@@ -31,8 +31,8 @@ class TicketViewSet(viewsets.ModelViewSet):
 
     queryset = models.Ticket.objects.all()
     serializer_class = serializers.TicketSerializer
-    filterset_fields = ['game_id', 'ticket_id', 'booked_by']
-    ordering_fields = ['game_id', 'ticket_id']
+    filterset_fields = ['ticket_id', 'booked_by']
+    ordering_fields = ['ticket_id']
 
     #update the booked_by field when booked 
     def update(self, request, *args, **kwargs):
@@ -44,7 +44,7 @@ class TicketViewSet(viewsets.ModelViewSet):
 class TicketGetViewSet(viewsets.ModelViewSet):
     queryset = models.Ticket.objects.all()
     serializer_class = serializers.TicketGetSerializer
-    filterset_fields = ['game_id', 'ticket_id', 'customer_name']
+    filterset_fields = [ 'ticket_id', 'customer_name']
 
 
 class WinnerViewSet(viewsets.ModelViewSet):
